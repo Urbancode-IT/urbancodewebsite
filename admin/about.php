@@ -178,7 +178,11 @@
 }
 
 @media (min-width: 992px) {
+  .about{
+    margin-top:30px;
+  }
   .about .about-img {
+    border-radius :70px !important;
     position: absolute;
     top: 0;
     right: 0;
@@ -186,34 +190,24 @@
   }
 }
 
-.about .about-img img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 650px;
-  object-fit: cover;
-  object-position: center;
-  z-index: 1;
-}
+
 
 </style>
-
 <section id="about" class="about section" style="margin-top: 120px;">
-
   <div class="container">
-    <div class="row position-relative">
-      <div class="col-lg-7 about-img" data-aos="zoom-out" data-aos-delay="200">
-        <img src="images/about/about_siva.heic" alt="About Sivagaminathan">
-      </div>
+    <!-- center columns vertically relative to tallest column -->
+    <div class="row g-4 align-items-center">
 
-      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-        <h2 class="inner-title">Sivagaminathan: Founder & Visionary Leader</h2>
-        <div class="our-story">
+      <!-- LEFT: TEXT (wider) -->
+     <div class="col-lg-6 pe-lg-5" data-aos="fade-up" data-aos-delay="100">
+        <div >
           <h4>Passionate Educator & Industry Expert</h4>
           <h3>About Sivagaminathan</h3>
+          <h4 style="text-transform:capitalize;">Founder & Visionary Leader</h4>
           <p>
-            Sivagaminathan is the founder of Urbancode, with over a decade of expertise in software development, cloud computing, and secure web applications. His passion for teaching and mentoring has empowered hundreds of learners to transform their careers through practical, industry-aligned training.
+            Sivagaminathan is the founder of Urbancode, with over a decade of expertise in software development,
+            cloud computing, and secure web applications. His passion for teaching and mentoring has empowered
+            hundreds of learners to transform their careers through practical, industry-aligned training.
           </p>
           <ul>
             <li><i class="bi bi-check-circle"></i> <span>Expertise in MERN, MEAN, and full-stack development</span></li>
@@ -225,9 +219,58 @@
           </p>
         </div>
       </div>
+
+      <!-- RIGHT: IMAGE (centered vertically) -->
+      <div class="col-lg-6 ps-lg-5 d-flex align-items-center justify-content-center">
+        <figure class="about-photo-wrap">
+          <img class="about-photo"
+              src="images/about/about_siva.webp"
+              alt="About Sivagaminathan"
+              loading="lazy"
+              decoding="async" />
+        </figure>
+      </div>
+
     </div>
   </div>
 </section>
+
+<style>
+  /* scoped to the about image only */
+.about-photo-wrap{
+  border-radius: 24px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;                  /* let it grow full height of column */
+  min-height: 420px;             /* increase minimum height */
+  max-height: 550px;             /* prevent from being too tall */
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+
+.about-photo{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* cover container fully */
+  display: block;
+}
+
+  /* on smaller screens, stack nicely and center image */
+  @media (max-width: 991.98px){
+    .about .row{ row-gap: 20px; }
+    .about-photo-wrap{ aspect-ratio: 4 / 3; }  /* a bit taller on mobile */
+  }
+  @media (min-width: 992px) {
+  .about .col-lg-6:first-child {
+    padding-right: 40px;  /* space between text and image */
+  }
+  .about .col-lg-6:last-child {
+    padding-left: 40px;   /* space between image and text */
+  }
+}
+
+</style>
+
+
 
 <!--<section id="about" class="about section mt-5">-->
 <!--  <div class="container">-->
@@ -477,7 +520,7 @@
       </div>
 
       <div class="features-image col-lg-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
-        <img src="images/about/trainer.jpg" alt="trainer">
+        <img src="images/about/trainer.webp" alt="trainer">
       </div>
 
     </div>

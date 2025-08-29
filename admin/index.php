@@ -50,7 +50,7 @@
  .testimonials-courses 
  .testimonials-slider { 
   overflow: hidden; 
-  margin-bottom:20px;
+  margin-bottom:30px;
 } 
 .testimonials-courses .testimonial-item {
   box-sizing: content-box;
@@ -77,7 +77,7 @@
   overflow: hidden; 
   transition: 0.3s ease-in-out; 
   max-height: 400px; 
-  max-width: 100%; 
+  width: 4500px !important; 
 } 
 
 .testimonials-courses .testimonial-item h3 { 
@@ -85,7 +85,7 @@
   margin-top: 10px; 
   color: black; 
   font-weight: 700; 
-  font-size: 20px; 
+  font-size: 20px;
   text-align:center;
 } 
 
@@ -200,6 +200,43 @@ span.course__vote {
 .vote {
   font-weight: 900;
   color: #FFC014;
+}
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+
+/* Hero Content Animations */
+.hero-content {
+  overflow: hidden; /* Ensures text doesn't overflow during animation */
+}
+
+.section-title {
+  animation: fadeInUp 1s ease-out both;
+}
+
+.span {
+  display: inline-block; /* Required for animation */
+  animation: fadeInUp 1s ease-out 0.3s both; /* Delayed start */
+}
+
+.hero-text {
+  animation: fadeInUp 1s ease-out 0.6s both; /* More delayed start */
+}
+
+.btn-hero {
+  animation: fadeInUp 1s ease-out 0.9s both; /* Even more delayed */
+}
+
+/* Keyframes for fade-in and slide-up effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*--------------------------------------------------------------
@@ -647,14 +684,38 @@ color: var(--color);
   padding: 10px 20px;
   border-radius: var(--radius-5);
   overflow: hidden;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25); /* 3D shadow */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
   transform: translateY(0);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* Needed for the shimmer effect */
 }
 
 .btn-hero:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35); /* Deeper on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Shimmer animation */
+.btn-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
 }
 
 .has-before,
@@ -769,7 +830,32 @@ gap: 30px;
   border-top-left-radius: 50px;
   border-bottom-right-radius: 90px;
 }
+/* Add to existing CSS */
 
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Apply floating animation */
+.hero-banner .img-holder.one,
+.hero-banner .img-holder.two {
+  animation: float 5s ease-in-out infinite;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+.hero-banner .img-holder:hover {
+  transform: scale(1.03) rotateZ(1deg) translateY(-5px); /* combine all */
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+  animation: none; /* stop animation on hover if desired */
+}
 
 /*-----------------------------------*\
 #ABOUT
@@ -981,7 +1067,9 @@ pointer-events: all;
 
 
 
-.btn-hero { padding: 15px 30px; }
+.btn-hero { 
+padding: 5px 15px; 
+}
 
 :is(.course, .blog) .grid-list { grid-template-columns: 1fr 1fr; }
 
@@ -1176,6 +1264,17 @@ pointer-events: all;
 
 
 }
+@media (max-width: 767px) {
+  .btn-hero {
+    font-size: 1rem;   /* smaller text */
+    padding: 8px 16px;   /* smaller button */
+  }
+
+  .hero-text {
+    text-align: center;
+    margin-block: 18px 20px;
+    }
+}
 </style> 
 
 <!--  bar model-->
@@ -1203,27 +1302,28 @@ pointer-events: all;
 
             <!--<a href="/courses" class="btn has-before">-->
             <!--  <span class="span">Find courses</span>-->
+            
 
             <!--  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>-->
             <!--</a>-->
             
-            <button type="button" class="btn-hero has-before" data-bs-toggle="modal" data-bs-target="#enquiryModal">Enroll Today</button>
+            <button type="button" class="btn-hero has-before" data-bs-toggle="modal" data-bs-target="#enquiryModal">Enquire now</button>
 
           </div>
 
           <figure class="hero-banner">
 
             <div class="img-holder one" style="--width: 270; --height: 300;">
-              <img src="image/banner-1.jpg" width="270" height="300" alt="hero banner" class="img-cover">
+              <img src="image/banner-1.webp" width="270" height="300" alt="hero banner" class="img-cover">
             </div>
 
             <div class="img-holder two" style="--width: 240; --height: 370;">
-              <img src="image/banner-2.jpg" width="240" height="370" alt="hero banner" class="img-cover">
+              <img src="image/banner-2.webp" width="240" height="370" alt="hero banner" class="img-cover">
             </div>
 
-            <img src="image/call.png" width="380" height="190" alt="" class="shape hero-shape-1">
+            <img src="image/call.webp" width="380" height="190" alt="" class="shape hero-shape-1">
 
-            <img src="image/hero-shape-2 (2).png" width="622" height="551" alt="" class="shape hero-shape-2">
+           <img src="image/hero-shape-2.webp" width="622" height="551" alt="" class="shape hero-shape-2">
 
           </figure>
 
@@ -1525,20 +1625,20 @@ pointer-events: all;
     <div class="video-card">
 
       <div class="video-banner img-holder has-after" style="--width: 970px; --height: 550px;">
-        <img src="image/vid.jpg" width="970" height="550" loading="lazy" alt="video banner"
+        <img src="image/vid.webp" width="970" height="550" loading="lazy" alt="video banner"
           class="img-cover">
 
         <!-- Glightbox trigger -->
-        <a href="https://youtu.be/mvhjpUEOTMk?si=5JwVngyHEGgjqnl" class="glightbox play-btn" data-type="video" aria-label="Play Video">
+        <!-- <a href="" class="glightbox play-btn" data-type="video" aria-label="Play Video">
           <ion-icon name="play" aria-hidden="true"></ion-icon>
-        </a>
+        </a> -->
       </div>
 
-      <img src="image/video-shape-1.png" width="1089" height="605" loading="lazy" alt=""
+      <!-- <img src="image/video-shape-1.png" width="1089" height="605" loading="lazy" alt=""
         class="shape video-shape-1">
 
       <img src="image/video-shape-2.png" width="158" height="174" loading="lazy" alt=""
-        class="shape video-shape-2">
+        class="shape video-shape-2"> -->
 
     </div>
 
@@ -1565,7 +1665,7 @@ pointer-events: all;
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="images/courses/python/python.jpg" class="testimonial-img" alt="Python Programming Urbancode">
+              <img src="images/courses/python/python.webp" class="testimonial-img" alt="Python Programming Urbancode">
               <h3><a href="/python">Python Programming</a></h3>
               <p>Master the world’s most versatile programming language with Urbancode's Python Course. Learn the fundamentals of Python, data structures, object-oriented programming, and real-world project development. Ideal for beginners and professionals looking to upgrade. Join us and build a strong foundation in Python.</p>
               <div class="course__ranking">
@@ -1590,7 +1690,7 @@ pointer-events: all;
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="images/courses/full-stack/full-stack.jpg" class="testimonial-img" alt="MERN MEAN Full Stack Urbancode">
+              <img src="images/courses/full-stack/full-stack.webp" class="testimonial-img" alt="MERN MEAN Full Stack Urbancode">
               <h3><a href="/full-stack">MERN & MEAN Stack</a></h3>
               <p>Learn full-stack web development with the MERN (MongoDB, Express, React, Node.js) and MEAN (MongoDB, Express, Angular, Node.js) stacks. From frontend design to backend logic, gain practical experience and build full-scale applications. Join Urbancode to master both JavaScript stacks in one program.</p>
               <div class="course__ranking">
@@ -1615,7 +1715,7 @@ pointer-events: all;
 <div class="swiper-slide">
   <div class="testimonial-wrap">
     <div class="testimonial-item">
-      <img src="images/courses/app-inventor-kids/mit.jpg" class="testimonial-img" alt="MIT Kids App Inventor Course at Urbancode">
+      <img src="images/courses/app-inventor-kids/mit.webp" class="testimonial-img" alt="MIT Kids App Inventor Course at Urbancode">
       <h3><a href="/app-inventor">MIT Kids - App Inventor</a></h3>
       <p>Empower your child to become a mobile app creator with Urbancode's <strong>MIT Kids App Inventor Course</strong>. This beginner-friendly program uses a visual, drag-and-drop interface to help kids design and build real Android apps—without writing complex code. Developed by MIT, App Inventor introduces children to logical thinking, user interface design, and creative problem solving in a fun and interactive way. Perfect for young innovators and future developers!</p>
       <div class="course__ranking">
@@ -1641,7 +1741,7 @@ pointer-events: all;
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="images/courses/react-native/react-native.jpg" class="testimonial-img" alt="React Native Course Urbancode">
+              <img src="images/courses/react-native/react-native.webp" class="testimonial-img" alt="React Native Course Urbancode">
               <h3><a href="/react-native">React Native</a></h3>
               <p>Learn to build cross-platform mobile applications using React Native. From UI components to navigation and API integrations, gain practical experience to create high-performance Android & iOS apps. Join Urbancode and become a mobile app developer with in-demand skills.</p>
               <div class="course__ranking">
@@ -1666,7 +1766,7 @@ pointer-events: all;
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="images/courses/power-bi/power-bi.jpg" class="testimonial-img" alt="Power BI & SQL Course Urbancode">
+              <img src="images/courses/power-bi/power-bi.webp" class="testimonial-img" alt="Power BI & SQL Course Urbancode">
               <h3><a href="/powerbi-sql">Power BI & SQL</a></h3>
               <p>Master data analytics with Urbancode’s Power BI & SQL Course. Learn how to write efficient SQL queries, visualize data with Power BI dashboards, and make data-driven decisions. Ideal for aspiring data analysts and business intelligence professionals.</p>
               <div class="course__ranking">
@@ -1691,7 +1791,7 @@ pointer-events: all;
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="images/courses/aws/aws.jpg" class="testimonial-img" alt="AWS Cloud Architect Urbancode">
+              <img src="images/courses/aws/aws.webp" class="testimonial-img" alt="AWS Cloud Architect Urbancode">
               <h3><a href="/aws">AWS Cloud Architect</a></h3>
               <p>Become a certified AWS Cloud Architect with Urbancode. Learn core AWS services, architecture principles, deployment strategies, and security. Build, manage, and scale cloud solutions. Suitable for all tech enthusiasts aiming to specialize in cloud technologies.</p>
               <div class="course__ranking">
@@ -1723,48 +1823,189 @@ pointer-events: all;
     <!-- 
         - #STATE
       -->
+<section class="section stats" aria-label="Our Achievements">
+  <div class="container">
+    
 
-      <section class="section stats" aria-label="stats">
-        <div class="container">
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="stats-card" style="--color: 170, 75%, 41%">
-                <h3 class="card-title">800+</h3>
-
-                <p class="card-text">Student Enrolled</p>
-              </div>
-            </li>
-
-            <li>
-              <div class="stats-card" style="--color: 351, 83%, 61%">
-                <h3 class="card-title">80+</h3>
-
-                <p class="card-text">Courses</p>
-              </div>
-            </li>
-
-            <li>
-              <div class="stats-card" style="--color: 260, 100%, 67%">
-                <h3 class="card-title">100%</h3>
-
-                <p class="card-text">Satisfaction Rate</p>
-              </div>
-            </li>
-
-            <li>
-              <div class="stats-card" style="--color: 42, 94%, 55%">
-                <h3 class="card-title">50+</h3>
-
-                <p class="card-text">Top Instructors</p>
-              </div>
-            </li>
-
-          </ul>
-
+    <ul class="grid-list">
+      <li>
+        <div class="stats-card">
+          <h3 class="card-title" data-count="800">0</h3>
+          <p class="card-text">Students Empowered</p>
         </div>
-      </section>
+      </li>
+
+      <li>
+        <div class="stats-card">
+          <h3 class="card-title" data-count="80">0</h3>
+          <p class="card-text">Diverse Courses</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="stats-card">
+          <h3 class="card-title" data-count="100">0</h3>
+          <p class="card-text">Student Satisfaction</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="stats-card">
+          <h3 class="card-title" data-count="50">0</h3>
+          <p class="card-text">Expert Instructors</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Base Styles - You can integrate these into your main CSS file */
+  .section.stats {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .section.stats .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  .section-description {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .stats-card {
+    background-color: #ffffff;
+    border-radius: 15px; /* Slightly more rounded */
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover */
+    border-bottom: 5px solid; /* Defined by specific card colors */
+  }
+
+  .stats-card:hover {
+    /* transform: translateY(-10px); Lifts the card on hover */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+  }
+
+  .stats-card .card-title {
+    font-size: 3.8em; /* Slightly larger */
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1;
+    /* Color set by JavaScript or specific card styles */
+  }
+
+  .stats-card .card-text {
+    font-size: 1.2em; /* Slightly larger */
+    color: #555;
+    font-weight: 500; /* A bit bolder */
+    opacity: 0.9; /* Slightly transparent */
+  }
+
+  /* Individual card colors */
+  .grid-list li:nth-child(1) .stats-card {
+    border-color: hsl(170, 75%, 41%); /* Green */
+  }
+
+  .grid-list li:nth-child(1) .card-title {
+    color: rgba(26, 183, 157, 0.8);
+  }
+
+  .grid-list li:nth-child(2) .stats-card {
+    border-color: hsl(351, 83%, 61%); /* Red/Pink */
+  }
+
+  .grid-list li:nth-child(2) .card-title {
+    color: rgba(238, 73, 98, 0.8);
+  }
+
+  .grid-list li:nth-child(3) .stats-card {
+    border-color: hsl(260, 100%, 67%); /* Purple */
+  }
+
+  .grid-list li:nth-child(3) .card-title {
+    color: rgba(143, 87, 255, 0.8);
+  }
+
+  .grid-list li:nth-child(4) .stats-card {
+    border-color: hsl(42, 94%, 55%); /* Orange */
+  }
+
+  .grid-list li:nth-child(4) .card-title {
+    color: rgba(248, 183, 32, 0.8);
+  }
+</style>
+
+<script>
+  // JavaScript for animated counting
+  document.addEventListener('DOMContentLoaded', () => {
+    const statsCards = document.querySelectorAll('.stats-card');
+
+    const animateCount = (element, target) => {
+      let count = 0;
+      const duration = 2000; // 2 seconds
+      const step = Math.ceil(target / (duration / 10)); // Adjust step for smoother animation
+
+      const timer = setInterval(() => {
+        count += step;
+        if (count >= target) {
+          count = target;
+          clearInterval(timer);
+        }
+        element.textContent = count + (element.closest('li').querySelector('.card-text').textContent.includes('Satisfaction') ? '%' : '+');
+      }, 10);
+    };
+
+    // Intersection Observer to trigger animation when cards are visible
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const titleElement = entry.target.querySelector('.card-title');
+          const targetCount = parseInt(titleElement.getAttribute('data-count'));
+          animateCount(titleElement, targetCount);
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    }, {
+      threshold: 0.5 // Trigger when 50% of the element is visible
+    });
+
+    statsCards.forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>
       
       
       
@@ -1773,7 +2014,7 @@ pointer-events: all;
 
     <!-- Certificate Image -->
     <div class="certificate-img" style="flex: 1 1 300px; min-width: 280px; max-width: 450px;">
-      <img src="images/certificate/urbancode-harvard-certificate.jpeg" alt="Urbancode Harvard Certificate" style="width: 100%; height: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
+      <img src="images/certificate/urbancode-harvard-certificate.webp" alt="Urbancode Harvard Certificate" style="width: 100%; height: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
     </div>
 
     <!-- Certificate Content -->
@@ -1810,7 +2051,7 @@ pointer-events: all;
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
-        <img src="images/certificate/urbancode-harvard-certificate.jpeg" alt="Certificate Large View" class="img-fluid rounded" />
+        <img src="images/certificate/urbancode-harvard-certificate.webp" alt="Certificate Large View" class="img-fluid rounded" />
       </div>
     </div>
   </div>
@@ -2676,6 +2917,13 @@ pointer-events: all;
   .gallery .swiper-slide-active {
     text-align: center;
   }
+  .swiper-slide img {
+  width: 250px;       /* Set your desired width */
+  height: 250px;      /* Set your desired height */
+  object-f.gallery-slider it: cover;  /* Ensures the image covers the box without distortion */
+  border-radius: 10px; /* Optional: adds rounded corners */
+}
+
 
   @media (min-width: 992px) {
     .gallery .swiper-wrapper {
@@ -2690,51 +2938,136 @@ pointer-events: all;
       transform: scale(1.2);
     }
   }
-</style>
+  /* ---- Mobile-only fixes for the gallery slider ---- */
+@media (max-width: 576px) {
+  /* Center each slide's content */
+  .gallery .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Make the anchor fill and center its child */
+  .gallery .swiper-slide > a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Center the image and keep the same look */
+  .gallery .swiper-slide img {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;           /* fixes mobile crop without changing desktop */
+    border-radius: 10px;
+  }
+
+  /* Disable desktop “active” zoom/border on phones only */
+  .gallery .swiper-slide-active {
+    border: none;
+    padding: 0;
+    background: transparent;
+    transform: none;
+  }
+
+  /* Remove extra vertical padding on phones */
+  .gallery .swiper-wrapper { padding: 0; }
+}
+/* ---- Tablet (iPad) responsive tweaks: 577px–991px ---- */
+@media (min-width: 577px) and (max-width: 991px) {
+  /* Center each slide */
+  .gallery .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Make anchor fill and center */
+  .gallery .swiper-slide > a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Slightly larger image than phone */
+  .gallery .swiper-slide img {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* Gentle spacing on tablets */
+  .gallery .swiper-wrapper { padding: 12px 0; }
+  .gallery .swiper-pagination { margin-top: 16px; }
+
+  /* No desktop zoom/border at this size */
+  .gallery .swiper-slide-active {
+    border: none;
+    padding: 0;
+    background: transparent;
+    transform: none;
+  }
+}
+/* phone + tablet */
+@media (max-width: 991px) {
+  .gallery .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;   /* keep one row */
+    gap: 8px;
+    overflow: hidden;    /* hide any accidental duplicates */
+
+    padding-top:25px;
+  }
+}
+
 </style>
 
-    <div class="container">
+<div class="container">
 
     <header class="section-header">
         <h3>Ongoing Courses</h3>
         <p>New posts</p>
     </header>
 
-      <div class="gallery-slider swiper">
+<div class="gallery-slider swiper">
   <div class="swiper-wrapper align-items-center">
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-1.jpg" aria-label="View image 1 in the gallery">
-              <img src="images/gallery/g-17.jpg" class="img-fluid" alt="Image 1">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-17.webp" aria-label="View image 1 in the gallery">
+              <img src="images/gallery/g-17.webp" class="img-fluid" alt="Image 1">
           </a>
       </div>
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-2.jpg" aria-label="View image 2 in the gallery">
-              <img src="images/gallery/g-18.jpg" class="img-fluid" alt="Image 2">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-18.webp" aria-label="View image 2 in the gallery">
+              <img src="images/gallery/g-18.webp" class="img-fluid" alt="Image 2">
           </a>
       </div>
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-3.jpg" aria-label="View image 3 in the gallery">
-              <img src="images/gallery/g-19.jpg" class="img-fluid" alt="Image 3">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-19.webp" aria-label="View image 3 in the gallery">
+              <img src="images/gallery/g-19.webp" class="img-fluid" alt="Image 3">
           </a>
       </div>
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-4.jpg" aria-label="View image 4 in the gallery">
-              <img src="images/gallery/g-20.jpg" class="img-fluid" alt="Image 4">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-20.webp" aria-label="View image 4 in the gallery">
+              <img src="images/gallery/g-20.webp" class="img-fluid" alt="Image 4">
           </a>
       </div>
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-5.jpg" aria-label="View image 5 in the gallery">
-              <img src="images/gallery/g-21.jpg" class="img-fluid" alt="Image 5">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-21.webp" aria-label="View image 5 in the gallery">
+              <img src="images/gallery/g-21.webp" class="img-fluid" alt="Image 5">
           </a>
       </div>
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-6.jpg" aria-label="View image 6 in the gallery">
-              <img src="images/gallery/g-22.jpg" class="img-fluid" alt="Image 7">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-22.webp" aria-label="View image 6 in the gallery">
+              <img src="images/gallery/g-22.webp" class="img-fluid" alt="Image 7">
           </a>
       </div>
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-7.jpg" aria-label="View image 7 in the gallery">
-              <img src="images/gallery/g-23.jpg" class="img-fluid" alt="Image 8">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-23.webp" aria-label="View image 7 in the gallery">
+              <img src="images/gallery/g-23.webp" class="img-fluid" alt="Image 8">
           </a>
       </div>
       <!--<div class="swiper-slide">-->
@@ -2753,8 +3086,8 @@ pointer-events: all;
       <!--    </a>-->
       <!--</div>-->
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-11.jpg" aria-label="View image 8 in the gallery">
-              <img src="images/gallery/g-11.jpg" class="img-fluid" alt="Image 11">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-11.webp" aria-label="View image 8 in the gallery">
+              <img src="images/gallery/g-11.webp" class="img-fluid" alt="Image 11">
           </a>
       </div>
       <!--<div class="swiper-slide">-->
@@ -2763,15 +3096,16 @@ pointer-events: all;
       <!--    </a>-->
       <!--</div>-->
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-13.jpg" aria-label="View image 8 in the gallery">
-              <img src="images/gallery/g-13.jpg" class="img-fluid" alt="Image 13">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-13.webp" aria-label="View image 8 in the gallery">
+              <img src="images/gallery/g-13.webp" class="img-fluid" alt="Image 13">
           </a>
       </div>
       <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-14.jpg" aria-label="View image 8 in the gallery">
-              <img src="images/gallery/g-14.jpg" class="img-fluid" alt="Image 14">
+          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-14.webp" aria-label="View image 8 in the gallery">
+              <img src="images/gallery/g-14.webp" class="img-fluid" alt="Image 14">
           </a>
       </div>
+      <!--
       <div class="swiper-slide">
           <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-15.jpg" aria-label="View image 8 in the gallery">
               <img src="images/gallery/g-15.jpg" class="img-fluid" alt="Image 15">
@@ -2781,15 +3115,13 @@ pointer-events: all;
           <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-16.jpg" aria-label="View image 8 in the gallery">
               <img src="images/gallery/g-16.jpg" class="img-fluid" alt="Image 16">
           </a>
-      </div>
+      </div>-->
   </div>
   <div class="swiper-pagination"></div>
 </div>
 
-
-    </div>
 </section><!-- End Gallery Section -->
-
+</div>
 <!-- ======= Testimonials Section ======= -->
 
 <style>
@@ -2906,7 +3238,7 @@ pointer-events: all;
   <div class="swiper-slide">
     <div class="review-wrap">
       <div class="review-item">
-        <img src="images/itdemand/google.png" class="review-img" alt="google">
+        <img src="images/itdemand/google.webp" class="review-img" alt="google">
         <h3>Founder : Larry Page and Sergey Brin in 1998.</h3>
         <h4>CEO : Sundar Pichai since October 2, 2015.</h4>
         <p>
@@ -2922,7 +3254,7 @@ pointer-events: all;
   <div class="swiper-slide">
     <div class="review-wrap">
       <div class="review-item">
-        <img src="images/itdemand/amazon.png" class="review-img" alt="amazon">
+        <img src="images/itdemand/amazon.webp" class="review-img" alt="amazon">
         <h3>Founder : Jeff Bezos in 1994.</h3>
         <h4>CEO : Andy Jassy since July 5, 2021.</h4>
         <p>
@@ -2938,7 +3270,7 @@ pointer-events: all;
   <div class="swiper-slide">
     <div class="review-wrap">
       <div class="review-item">
-        <img src="images/itdemand/apple.png" class="review-img" alt="apple">
+        <img src="images/itdemand/apple.webp" class="review-img" alt="apple">
         <h3>Founder : Steve Jobs, Steve Wozniak, and Ronald Wayne in 1976.</h3>
         <h4>CEO : Tim Cook since August 24, 2011.</h4>
         <p>
@@ -2954,7 +3286,7 @@ pointer-events: all;
                 <div class="swiper-slide">
                     <div class="review-wrap">
                         <div class="review-item">
-                            <img src="images/itdemand/microsoft.png" class="review-img" alt="microsoft">
+                            <img src="images/itdemand/microsoft.webp" class="review-img" alt="microsoft">
                             <h3>Founder : Bill Gates and Paul Allen in 1975.</h3>
                             <h4>CEO : Satya Nadella since February 4, 2014.</h4>
                             <p>
@@ -2969,7 +3301,7 @@ pointer-events: all;
                 <div class="swiper-slide">
                     <div class="review-wrap">
                         <div class="review-item">
-                            <img src="images/itdemand/ibm.png" class="ibm" alt="ibm">
+                            <img src="images/itdemand/ibm.webp" class="ibm" alt="ibm">
                             <h3>Founder : Thomas J. Watson Sr. in 1911.</h3>
                             <h4>CEO : Arvind Krishna since April 6, 2020.</h4>
                             <p>
@@ -2984,7 +3316,7 @@ pointer-events: all;
                 <div class="swiper-slide">
                     <div class="review-wrap">
                         <div class="review-item">
-                            <img src="images/itdemand/tcs.png" class="review-img" alt="tcs">
+                            <img src="images/itdemand/tcs.webp" class="review-img" alt="tcs">
                             <h3>Founder : J.R.D Tata in 1968.</h3>
                             <h4>CEO : Rajesh Gopinathan since February 21, 2017</h4>
                             <p>
@@ -2999,7 +3331,7 @@ pointer-events: all;
                 <div class="swiper-slide">
                     <div class="review-wrap">
                         <div class="review-item">
-                            <img src="images/itdemand/cisco.png" class="cisco" alt="cisco">
+                            <img src="images/itdemand/cisco.webp" class="cisco" alt="cisco">
                             <h3>Founder : Leonard Bosack and Sandy Lerner in 1984.</h3>
                             <h4>CEO : Chuck Robbins since July 26, 2015.</h4>
                             <p>
@@ -3014,7 +3346,7 @@ pointer-events: all;
                 <div class="swiper-slide">
                     <div class="review-wrap">
                         <div class="review-item">
-                            <img src="images/itdemand/accenture.png" class="review-img" alt="accenture">
+                            <img src="images/itdemand/accenture.webp" class="review-img" alt="accenture">
                             <h3>Founder : Arthur Andersen in 1989.</h3>
                             <h4>CEO : Julie Sweet since September 1, 2019.</h4>
                             <p>
@@ -3115,18 +3447,20 @@ pointer-events: all;
         <div class="swiper-slide"><img src="images/works/zoho.webp" class="img-fluid" alt="zoho"></div>
         <div class="swiper-slide"><img src="images/works/paypal.webp" class="img-fluid" alt="paypal"></div>
         <div class="swiper-slide"><img src="images/works/freshwork.webp" class="img-fluid" alt="freshwork"></div>
-        <div class="swiper-slide"><img src="images/works/cisco.png" class="img-fluid" alt="cisco"></div>
-        <div class="swiper-slide"><img src="images/works/ibm.png" class="img-fluid" alt="ibm"></div>
-        <div class="swiper-slide"><img src="images/works/inposys.png" class="img-fluid" alt="inposys"></div>
-        <div class="swiper-slide"><img src="images/works/microsoft.png" class="img-fluid" alt="microsoft"></div>
-        <div class="swiper-slide"><img src="images/works/nptel.png" class="img-fluid" alt="nptel"></div>
-        <div class="swiper-slide"><img src="images/works/tcs.png" class="img-fluid" alt="tata"></div>
-        <div class="swiper-slide"><img src="images/works/guvi.png" class="img-fluid" alt="guvi"></div>
-        <div class="swiper-slide"><img src="images/works/google-partner..svg" class="img-fluid" alt="gcloud"></div>
-        <div class="swiper-slide"><img src="images/works/hcl.png" class="img-fluid" alt="hcl"></div>
-        <div class="swiper-slide"><img src="images/works/github.svg" class="img-fluid" alt="github"></div>
-        <div class="swiper-slide"><img src="images/works/oracle.png" class="img-fluid" alt="oracle"></div>
-        <div class="swiper-slide"><img src="images/works/iitmlogo..svg" class="img-fluid" alt="iitmlogo"></div>
+        <div class="swiper-slide"><img src="images/works/cisco.webp" class="img-fluid" alt="cisco"></div>
+        <div class="swiper-slide"><img src="images/works/ibm.webp" class="img-fluid" alt="ibm"></div>
+        <div class="swiper-slide"><img src="images/works/inposys.webp" class="img-fluid" alt="infosys"></div>
+        <div class="swiper-slide"><img src="images/works/microsoft.webp" class="img-fluid" alt="microsoft"></div>
+        <div class="swiper-slide"><img src="images/works/nptel.webp" class="img-fluid" alt="nptel"></div>
+        <div class="swiper-slide"><img src="images/works/tcs.webp" class="img-fluid" alt="tata"></div>
+        <div class="swiper-slide"><img src="images/works/guvi.webp" class="img-fluid" alt="guvi"></div>
+        <div class="swiper-slide"><img src="images/works/google-partner.webp" class="img-fluid" alt="gcloud"></div>
+        <div class="swiper-slide"><img src="images/works/hcl.webp" class="img-fluid" alt="hcl"></div>
+        <div class="swiper-slide"><img src="images/works/github.webp" class="img-fluid" alt="github"></div>
+        <div class="swiper-slide"><img src="images/works/oracle.webp" class="img-fluid" alt="oracle"></div>
+        <div class="swiper-slide"><img src="images/works/iitmlogo..webp" class="img-fluid" alt="iitmlogo"></div>
+        <div class="swiper-slide"><img src="images/works/capegemini.webp" class="img-fluid" alt="capgemini"></div>
+        <div class="swiper-slide"><img src="images/works/deloitte.webp" class="img-fluid" alt="deloitte"></div>
       </div>
     </div>
   </div>

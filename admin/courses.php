@@ -1,291 +1,223 @@
 <?php require_once "config.php"; ?>
 <?php include 'inc/header.php';?>
 
+
+  
 <style>
-/*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
+  :root {
+    --card-radius: 1.25rem;
+    --card-padding: 1.5rem;
+    --card-gap: 1.5rem;
+    --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    --hover-lift: translateY(-10px);
+    --hover-scale: scale(1.02);
+  }
 
-li {
-  list-style: none;
-}
-
-a,
-img,
-data,
-input,
-button,
-ion-icon {
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  height: auto;
-}
-
-input,
-button {
-  background: none;
-  border: none;
-  font: inherit;
-}
-
-ion-icon {
-  pointer-events: none;
-}
-
-address {
-  font-style: normal;
-}
-
-html {
-  font-family: 'Poppins', sans-serif;
-  font-size: 10px;
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: hsl(0, 0%, 100%);
-  color:black;
-  font-size: 1.6rem;
-  line-height: 1.75;
-}
-
-:focus-visible {
-  outline-offset: 4px;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: hsl(0, 0%, 98%);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: hsl(0, 0%, 80%);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(0, 0%, 70%);
-}
-
-/*-----------------------------------*\
-#REUSED STYLE
-\*-----------------------------------*/
-
-.container {
-  width:100%;
-}
-
-.h1,
-.h2,
-.h3 {
-  color:black;
-  font-family: 'League Spartan', sans-serif;
-  line-height: 1;
-}
-
-.h1,
-.h2 {
-  font-weight: 600;
-}
-
-.h1 {
-  font-size: 4.2rem;
-}
-
-.h2 {
-  font-size: 3.2rem;
-}
-
-.h3 {
-  font-size: 2.3rem;
-  font-weight: 500;
-}
-
-.grid-list {
-  display: grid;
-  gap: 30px;
-}
-
-.category-card,
-.stats-card {
-  background-color: hsla(170, 75%, 41%, 0.1);
-}
-
-/* General Styles for Category Cards */
-.category-card {
-  padding: 30px;
-  text-align: center;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 300px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 6px 15px 0 hsla(0, 0%, 0%, 0.05);
-  transition: transform 0.5s ease, box-shadow 0.3s ease;
-  margin: auto;
-  position: relative;
-  perspective: 1000px;
-}
-
-.category-card:hover {
-  transform: rotateX(5deg) scale(1.05);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-.card-icon {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease;
-}
-
-.card-title {
-  display: block;
-  font-size: 1.8rem;
-  color: hsl(0, 0%, 9%);
-  transition: color 0.3s ease;
-}
-
-.card-title:hover {
-    color:#01af6a;
-}
-.card-text {
-  font-size: 1.5rem;
-  color: hsl(0, 0%, 9%);
-  margin-bottom: 20px;
-  transition: color 0.3s ease;
-}
-
-.card-badge {
-  display: inline-block;
-  background-color: hsla(170, 75%, 41%, 0.1); /* Default color */
-  color: hsl(170, 75%, 41%); /* Default color */
-  font-size: 1.5rem;
-  font-weight: 500;
-  padding: 5px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-
-/*-----------------------------------*\
-#MEDIA QUERIES
-\*-----------------------------------*/
-
-/**
-* responsive for large than 575px screen
-*/
-
-@media (min-width: 575px) {
-
-
+  .container {
+    padding: 0rem;
+    max-width: 1200px;
+    margin: auto;
+  }
 
   .grid-list {
-    grid-template-columns: 1fr 1fr;
+    display: grid;
+    gap: var(--card-gap);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
-}
 
-/**
-* responsive for large than 768px screen
-*/
-
-@media (min-width: 768px) {
-
-
-
-  .btn {
-    padding: 15px 30px;
+  .category-card-link {
+    text-decoration: none;
+    color: inherit;
   }
-}
 
-/**
-* responsive for large than 992px screen
-*/
-
-@media (min-width: 992px) {
-
-
-
-  .grid-list {
-    grid-template-columns: repeat(4, 1fr);
+  .category-card {
+    background-color: hsla(var(--accent), 0.1);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
   }
-}
 
+  .category-card:hover {
+    transform: var(--hover-lift) var(--hover-scale);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  }
 
+  .card-icon {
+    background-color: hsla(var(--accent), 0.1);
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+  }
 
+  .card-icon i {
+    font-size: 2.5rem;
+    color: #000;
+  }
+
+  .h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+    flex-grow: 1;
+  }
+
+  .card-badge {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: hsla(var(--accent), 0.1);
+    color: hsl(var(--accent));
+    border-radius: 999px;
+  }
+
+  @media (max-width: 480px) {
+    .card-icon {
+      width: 48px;
+      height: 48px;
+    }
+    .card-icon i {
+      font-size: 2rem;
+    }
+    .h3 {
+      font-size: 1rem;
+    }
+    .card-text {
+      font-size: 0.85rem;
+    }
+    .card-badge {
+      font-size: 0.75rem;
+    }
+  }
+</sty>
 </style>
-<!--Hero Section-->
+<style>
+   /* Base styles for the hero section */
+  .hero.section {
+    padding: 80px 0; /* Adjust padding as needed */
+    overflow: hidden; /* Crucial to hide elements before they animate in */
+    position: relative; /* Good practice for sections */
+    background-color: #f8f9fa; /* Light background for contrast */
+  }
+
+  /* Keyframes for the text content (sliding in from left with fade) */
+  @keyframes slideInLeftFade {
+    from {
+      opacity: 0;
+      transform: translateX(-80px); /* Start further left */
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0); /* End at original position */
+    }
+  }
+
+  /* Keyframes for the image content (sliding in from right with fade and subtle scale) */
+  @keyframes slideInRightFadeScale {
+    from {
+      opacity: 0;
+      transform: translateX(80px) scale(0.95); /* Start further right and slightly smaller */
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1); /* End at original position and size */
+    }
+  }
+
+  /* Apply animation to specific text elements with a slight stagger */
+  .hero.section .col-lg-6.order-2.order-lg-1 h1 {
+    opacity: 0; /* Hidden initially */
+    animation: slideInLeftFade 1s ease-out forwards;
+    animation-delay: 0.2s; /* H1 appears first */
+  }
+
+  .hero.section .col-lg-6.order-2.order-lg-1 p {
+    opacity: 0; /* Hidden initially */
+    animation: slideInLeftFade 1s ease-out forwards;
+    animation-delay: 0.5s; /* Paragraph appears after H1 */
+  }
+
+  /* Apply animation to the right column (image content) */
+  .hero.section .col-lg-6.order-1.order-lg-2.hero-img {
+    opacity: 0; /* Hidden initially */
+    animation: slideInRightFadeScale 1.2s ease-out forwards; /* Longer duration for image */
+    animation-delay: 0.4s; /* Image starts between H1 and P, or slightly after P */
+  }
+
+  /* Ensure the image inside scales properly and maintains your border-radius */
+  .hero-img img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 55px; /* Preserving your existing style */
+  }
+
+  /* Optional: Basic styling for text within hero section for better presentation */
+  .hero.section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .hero.section p {
+    font-size: 1.25rem;
+    color: #556b82;
+    margin-bottom: 30px;
+  }
+  </style>
 <main class="main">
 
 <!-- Hero Section -->
 <section id="hero" class="hero section">
-
   <div class="container">
-    <div class="row gy-4">
+    <div class="row gy-4 align-items-center">
       <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
         <h1>Learn from experts, master new skills</h1>
         <p>Join us to gain in-demand skills and hands-on expertise that drive your career forward.</p>
         <div class="d-flex">
-          
+          <!-- Optional Buttons -->
         </div>
       </div>
-      <div class="col-lg-6 order-1 order-lg-2 hero-img" >
-        <img src="image\about.jpg" class="img-fluid " style="border-radius: 55px; alt="">
+      <div class="col-lg-6 order-1 order-lg-2 hero-img">
+        <img src="image/about.webp" class="img-fluid" style="border-radius: 55px;" alt="About">
       </div>
     </div>
   </div>
+</section>
 
-</section><!-- /Hero Section -->
 </main>
 
-
-
-
-<!-- =======  courses Breadcrumbs-header ======= 
-
-<div class="breadcrumbs-header">
-  <div class="page-header d-flex align-items-center">
-    <div class="container position-relative">
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-6 text-center">
-          <h2>Our Courses</h2>
-          <!-- <p>Explore a wide range of courses designed to enhance your skills and knowledge. From programming to data science, find the perfect course for you.</p> 
-        </div>
-      </div>
-    </div>
-  </div>
-  <nav>
-    <div class="container">
-      <ol class="breadcrumb">
-        <li><a href="/">Home</a></li>
-        <li class="active">Courses</li>
-      </ol>
-    </div>
-  </nav>
-</div><!-- End Breadcrumbs -->
-
-
+<!-- Courses Section -->
 <section class="section category" aria-label="category">
-  <div class="container">
-    <ul class="grid-list">
-      
-    <!-- Programming Languages -->
+ <div class="container">
+    <header class="section-header">
+        <h3>Course domains</h3>
+        <p>New posts</p>
+    </header>
+  <ul class="grid-list">
+     <!-- Programming Languages -->
       <li>
   <a href="/programming-languages" class="category-card-link">
     <div class="category-card" style="background-color: hsla(220, 80%, 70%, 0.1);">
@@ -305,8 +237,7 @@ body {
   </a>
 </li>
 
-      
- <!-- Web Development -->
+    <!-- Web Development -->
 <li>
   <a href="/web-development" class="category-card-link">
     <div class="category-card" style="background-color: hsla(200, 80%, 60%, 0.1);">
@@ -453,7 +384,7 @@ body {
 <!-- SEO -->
 <li>
   <a href="/seo" class="category-card-link">
-    <div class="category-card" style="background-color: hsla(60, 100%, 50%, 0.1);">
+    <div class="category-card" style="background-color: hsla(60, 42%, 20%, 0.10);">
       <div class="card-icon" style="background-color: hsla(60, 100%, 50%, 0.1);">
         <i class="bi bi-search" style="font-size: 3rem; color: black;"></i>
       </div>
@@ -461,7 +392,7 @@ body {
       <p class="card-text">
         Optimize websites for search engines with Urbancode's SEO courses.
       </p>
-      <span class="card-badge" style="background-color: hsla(60, 100%, 50%, 0.1); color: hsl(60, 100%, 50%);">2 Courses</span>
+      <span class="card-badge" style="background-color: hsla(60, 80%, 8%, 0.10); color: hsla(60, 37%, 24%, 1.00);">2 Courses</span>
     </div>
   </a>
 </li>
@@ -512,22 +443,6 @@ body {
         </div>
        </a>
       </li>
-
-      <!-- Kids -->
-      <li>
-      <a href="/kids" class="category-card-link">
-        <div class="category-card" style="background-color: hsla(300, 60%, 65%, 0.1);">
-          <div class="card-icon" style="background-color: hsla(300, 60%, 65%, 0.1);">
-            <i class="bi bi-house" style="font-size: 3rem; color: black;"></i>
-          </div>
-          <h3 class="h3">Kids</h3>
-          <p class="card-text">
-            Engage young minds with Urbancode's educational courses designed for kids.
-          </p>
-          <span class="card-badge" style="background-color: hsla(300, 60%, 65%, 0.1); color: hsl(300, 60%, 65%);">6 Courses</span>
-        </div>
-       </a>
-      </li>
         <!-- CRM -->
         <li>
           <a href="/crm" class="category-card-link">
@@ -543,6 +458,22 @@ body {
          </div>
   </a>
 </li>
+      <!-- Kids -->
+      <li>
+      <a href="/kids" class="category-card-link">
+        <div class="category-card" style="background-color: hsla(300, 60%, 65%, 0.1);">
+          <div class="card-icon" style="background-color: hsla(300, 60%, 65%, 0.1);">
+            <i class="bi bi-house" style="font-size: 3rem; color: black;"></i>
+          </div>
+          <h3 class="h3">Kids</h3>
+          <p class="card-text">
+            Engage young minds with Urbancode's educational courses designed for kids.
+          </p>
+          <span class="card-badge" style="background-color: hsla(300, 60%, 65%, 0.1); color: hsl(300, 60%, 65%);">6 Courses</span>
+        </div>
+       </a>
+      </li>
+
         <!-- React-Native -->
 
 <li>
@@ -561,17 +492,9 @@ body {
 
 </li>
 
-</ul>
-  </div>
+
+  </ul>
+</div>
 </section>
 
-
-
-
-
-
-
-
-
-
-<?php include 'inc/footer.php';?>
+<?php include 'inc/footer.php'; ?>
