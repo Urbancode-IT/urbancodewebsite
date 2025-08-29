@@ -6,24 +6,21 @@
     <link rel="icon" type="image/x-icon" href="https://urbancode.in/images/icon.png">
 
 <!--hero section code-->
-     <!-- Main CSS File -->
-     <link href="assets/css/main.css" rel="stylesheet">
+    
   
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+ 
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700;800&display=swap">
 
 
 
@@ -34,7 +31,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <?php 
+   <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1166375174468303');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+   <?php 
         $baseurl = 'https://urbancode.in/';
         $url = $_SERVER['REQUEST_URI'];
         $exp = explode("/",$url);
@@ -828,6 +843,7 @@ else if($endex[0]=='seo'){
     <meta property="og:image" content="<?php echo $image; ?>">
     <link rel="canonical" href="<?php echo $canonical; ?>" />
 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet">
@@ -836,15 +852,42 @@ else if($endex[0]=='seo'){
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-    <script src="https://unpkg.com/@srexi/purecounterjs"></script>
+<!-- Slick JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <!-- Glightbox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
+  <script defer
+          src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"
+          crossorigin></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => new PureCounter());
+  </script>
+  <!-- ✅ Preconnect to CDN first -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- ✅ Preload Swiper JS early -->
+  <link rel="preload"
+        as="script"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+        crossorigin>
+
      <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">  
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
+
+<link rel="preconnect" href="https://www.youtube.com">
+<link rel="preconnect" href="https://i.ytimg.com">
+<link rel="preconnect" href="https://www.google.com">
+<link rel="dns-prefetch" href="//www.youtube.com">
+<link rel="dns-prefetch" href="//i.ytimg.com">
+<link rel="dns-prefetch" href="//www.google.com">
+   
+
+    
     <!-- Google Search console-->
 
     <meta name="google-site-verification" content="WEXErXa5JBg5hZPCEKFY_g1UVf9R3AxHCZYgQWjQspY" />
@@ -890,7 +933,7 @@ else if($endex[0]=='seo'){
 }
 
 .header .logo img {
-  max-height: 46px;
+  max-height: 56px;
   margin-right: 8px;
 }
 
@@ -927,6 +970,9 @@ else if($endex[0]=='seo'){
 }
 
 @media (max-width: 1200px) {
+  .navmenu ul{
+  max-height: 360px !important;
+}
   .header .logo {
     order: 1;
   }
@@ -981,7 +1027,7 @@ else if($endex[0]=='seo'){
     color: #7f7f90;
     font-size: 15px;
     padding: 0 2px;
-    font-family:"Matter", sans-serif;
+    /* font-family:"Matter", sans-serif; */
     font-weight: 545;
     display: flex;
     align-items: center;
@@ -1079,7 +1125,7 @@ else if($endex[0]=='seo'){
 
 .navmenu .dropdown .dropdown:hover > ul {
     opacity: 1;
-    left: -50%; /* Adjusts the position for submenus to appear aligned */
+    left: -85%; /* Adjusts the position for submenus to appear aligned */
     visibility: visible;
 }
 
@@ -1095,7 +1141,8 @@ else if($endex[0]=='seo'){
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: #000; 
-    font-size: 28px;
+    font-size: 38px;
+    font-weight: bolder;  
     line-height: 0;
     margin-right: 10px;
     cursor: pointer;
@@ -1127,7 +1174,7 @@ else if($endex[0]=='seo'){
   .navmenu a:focus {
     color: #01af6a; 
     padding: 10px 20px;
-    font-family: "Poppins", sans-serif; 
+    /* font-family: "Poppins", sans-serif;  */
     font-size: 17px;
     display: flex;
     align-items: center;
@@ -1751,6 +1798,7 @@ span.course__vote {
   color: #FFC014;
 }
 
+
 </style>
  
     </style>  
@@ -1772,23 +1820,6 @@ span.course__vote {
 
   gtag('config', 'AW-11484655961');
 </script> -->
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1166375174468303');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 
 
 
@@ -1833,11 +1864,12 @@ src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
   </div>
 </div> End Topbar -->
 
+
 <header id="header" class="header d-flex align-items-center sticky-top">
   <div class="container position-relative d-flex align-items-center justify-content-between">
       <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="images/logo.png" alt="logo">
+          <img src="images/logo.webp" alt="logo">
         <!-- <h1 class="sitename">Urbancode</h1> -->
       </a>
 
@@ -1936,7 +1968,7 @@ src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
 
         
         <li class="dropdown up-dropdown">
-            <a href="#"><span>Data Visualization</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <a href="#"><span>Data Analytics</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul class="dropdown-submenu">
                 <li><a class="dropdown-item" href="/power-bi">Power BI</a></li>
                 <li><a class="dropdown-item" href="/tableau">Tableau</a></li>
@@ -1980,7 +2012,7 @@ src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
 
 
       
-        <li class="dropdown up-dropdown">
+        <!-- <li class="dropdown up-dropdown">
             <a href="#"><span>Languages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul class="dropdown-submenu">
                 <li><a class="dropdown-item" href="/spoken-english">Spoken English</a></li>
@@ -1992,10 +2024,10 @@ src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
                 <li><a class="dropdown-item" href="/ms-office">Ms Office</a></li>
 
             </ul>
-        </li>
+        </li> -->
 
        
-        <li class="dropdown up-dropdown">
+        <!-- <li class="dropdown up-dropdown">
             <a href="#"><span>English Proficiency Exams</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul class="dropdown-submenu">
                 <li><a class="dropdown-item" href="/ielts">IELTS</a></li>
@@ -2003,15 +2035,15 @@ src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
                 <li><a class="dropdown-item" href="/pte">PTE</a></li>
                 <li><a class="dropdown-item" href="/oet">OET</a></li>
             </ul>
-        </li>
+        </li> -->
 
        
         <li class="dropdown up-dropdown">
             <a href="#"><span>Kids</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul class="dropdown-submenu">
-                <li><a class="dropdown-item" href="/appinventor-kids">MIT Appinventor</a></li>
+                <!-- <li><a class="dropdown-item" href="/appinventor-kids">MIT Appinventor</a></li> -->
                 <li><a class="dropdown-item" href="/python-kids">Python jr</a></li>
-                <li><a class="dropdown-item" href="/scratch-kids">Scratch</a></li>
+                <!-- <li><a class="dropdown-item" href="/scratch-kids">Scratch</a></li> -->
                 <li><a class="dropdown-item" href="/webdesign-kids">Web Design</a></li>
                 <li><a class="dropdown-item" href="/creativewriting-blogging">Creative Writing & Blogging</a></li>
                 <li><a class="dropdown-item" href="/book-reading-club-kids">Book Reading Club</a></li>
@@ -2050,7 +2082,7 @@ src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
                    </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   
-                  <li><a class="dropdown-item" href="/study-abroad">Study Abroad</a></li>
+                  <!-- <li><a class="dropdown-item" href="/study-abroad">Study Abroad</a></li> -->
                   <li><a class="dropdown-item" href="/internship">Internship</a></li>
                   <li><a class="dropdown-item" href="/uc-jobs">UC Jobs</a></li>
                   <li><a class="dropdown-item" href="/jobs">jobs</a></li>
@@ -2290,7 +2322,7 @@ src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
                                     <div class="col-6">
                                         <div class="text-center p-3 border rounded shadow-sm bg-light">
                                             <h6 class="fw-bold">Scan & Pay</h6>
-                                            <img src="images/payment/qr.png" alt="QR Code" class="img-fluid rounded" style="max-width: 100px;">
+                                            <img src="images/payment/qr.webp" alt="QR Code" class="img-fluid rounded" style="max-width: 100px;">
                                         </div>
                                     </div>
                                 </div>
@@ -2581,6 +2613,9 @@ src="https://www.facebook.com/tr?id=1166375174468303&ev=PageView&noscript=1"
   margin-top: 0px !important;
 }
 
+.navmenu ul{
+  max-height: 360px !important;
+}
 }
 
 @keyframes up-down {

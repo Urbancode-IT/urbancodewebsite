@@ -144,17 +144,17 @@
     </div>
 
     <!-- Heading -->
-    <div class="feedback-header">
+    <!-- <div class="feedback-header">
       <div class="rating">
         <span class="stars">★★★★★</span>
         <span class="score">4.9</span>
       </div>
       <h2 class="main-heading">They love <span class="highlight">us</span>! <span class="emoji">🥰</span></h2>
       <div class="likes">❤️ 12k</div>
-    </div>
+    </div> -->
 
     <!-- Swiper -->
-    <div class="swiper mySwiper">
+    <!-- <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <?php 
         $sql = "SELECT * FROM testimonials";
@@ -183,8 +183,52 @@
             echo '<p>No testimonials found.</p>';
         } ?>
       </div>
-      <!--<div class="swiper-pagination"></div>-->
-    </div>
+      
+    </div> -->
+    <div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <?php 
+    $sql = "SELECT * FROM testimonials";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while ($testimonial = $result->fetch_assoc()):
+            $title = isset($testimonial['title']) ? $testimonial['title'] : '';
+            $message = isset($testimonial['message']) ? $testimonial['message'] : '';
+            $country = isset($testimonial['country']) ? strtoupper($testimonial['country']) : '';
+            $name = isset($testimonial['name']) ? strtoupper($testimonial['name']) : '';
+    ?>
+      <div class="swiper-slide">
+        <div class="testimonial-card mt-3">
+          <div class="stars">★★★★★</div>
+          <?php if (!empty($title)): ?>
+            <h3 class="title"><?php echo htmlspecialchars($title); ?></h3>
+          <?php endif; ?>
+
+          <p class="message">
+            <?php echo htmlspecialchars(substr($message, 0, 180)); ?>
+            <?php if (strlen($message) > 180): ?>
+              <span class="more-text" style="display: none;"><?php echo htmlspecialchars(substr($message, 180)); ?></span>
+              <span class="read-more">Read More</span>
+            <?php endif; ?>
+          </p>
+
+          <div class="user">
+            <?php if (!empty($country)): ?>
+              <span class="country"><?php echo $country; ?></span>
+            <?php endif; ?>
+            <?php if (!empty($name)): ?>
+              <span class="name"><?php echo $name; ?></span>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+    <?php endwhile;
+    } else {
+        echo '<p>No testimonials found.</p>';
+    } ?>
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -193,7 +237,8 @@
 
 
   <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
   <!-- Your existing JS files -->
   <script>
@@ -420,10 +465,15 @@
         <div class="row justify-content-center">
           <div class="col-lg-6">
             <h4>To Know more about our courses</h4>
-            <p>Subscribe to our newsletter</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" class="btn bth-success" value="Subscribe Now">
+            
+            <!-- <form action="" method="post">
+              <input type="email" name="email"><input type="submit" class="btn bth-success" value="Download Brochure">
+            </form> -->
+            <form>
+              
+              <button type="button" class="btn btn-success" onclick="document.querySelector('.brochure_popup').style.display='block';">Download Brochure</button>
             </form>
+
           </div>
         </div>
       </div>
@@ -433,12 +483,12 @@
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="footer-info footer-links">
-            <img src="images/footer-logo.png" alt="Logo" style="width:225px; margin-bottom:15px;">
+            <img src="images/footer-logo.webp" alt="Logo" style="width:225px; margin-bottom:15px;">
               <ul>
                 <li><i class="bi bi-chevron-right"></i> <a href="/">Home</a></li>
                 <li><i class="bi bi-chevron-right"></i> <a href="/about">About us</a></li>
                 <li><i class="bi bi-chevron-right"></i> <a href="/contact-us">Contact us</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="https://blog-urbancode.blogspot.com/">blog</a></li>   
+                <li><i class="bi bi-chevron-right"></i> <a href="https://blog-urbancode.blogspot.com/">Blog</a></li>   
                 <li><i class="bi bi-chevron-right"></i> <a href="/privacy-policy">Privacy policy</a></li>
               </ul>  
     
@@ -457,24 +507,30 @@
             <ul>
               <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Full Stack Development</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/angular-fullstack">.NET + Angular Full Stack</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Data Science</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Data Analytics</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/aws">AWS cloud computing course</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/digital-marketing">Digital Marketing course</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/ms-sql">MSSQL Server online course</a></li>
             </ul>
           </div>
-
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Language & Kids Courses</h4>
+            <h4>Kids Courses</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="/spoken-english">English Course</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/french">French Course</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/german">German Course</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/appinventor-kids">MIT Appinventor Kids</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/python-kids">Python Kids</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/scratch-kids">Scratch Kids</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Python Kids</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/angular-fullstack">AI for Kids</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Web Development For Kids</a></li>
+
             </ul>
+             <h4>Internships</h4>
+             <ul>
+             <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Software Testing Internsip</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/angular-fullstack">Web Development Internship</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Digital Marketing Internship</a></li>
+            </ul>
+
           </div>
+
+
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Demand Courses</h4>
@@ -487,6 +543,7 @@
               <li></li><i class="bi bi-chevron-right"></i> <a href="/python">Python</a></li>
             </ul>
           </div>
+          
 
         </div>
       </div>
@@ -527,18 +584,21 @@
 
 #footer .footer-newsletter form {
   margin-top: 30px;
-  background: #fff;
+  
   padding: 6px 10px;
   position: relative;
-  border-radius: 50px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.06);
-  text-align: left;
+  
 }
 
-#footer .footer-newsletter form input[type=email] {
+#footer .footer-newsletter form button {
   border: 0;
-  padding: 4px 8px;
+  padding: 8px;
   width: calc(100% - 100px);
+  border-radius: 50px;
+  font-weight: 600;
+  background: #01af6a;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
 #footer .footer-newsletter form input[type=submit] {
@@ -558,7 +618,7 @@
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-#footer .footer-newsletter form input[type=submit]:hover {
+#footer .footer-newsletter form button:hover {
   background: #01af6a;
 } 
   #footer .footer-top { 
@@ -804,8 +864,12 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 </div>
+<script src="js/script.js?v=3"></script>
+
 
 </body>
+
+
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript">
@@ -870,5 +934,5 @@
       });
     });
   </script>  
-<script src="js/script.js"></script>
+
 </html>
