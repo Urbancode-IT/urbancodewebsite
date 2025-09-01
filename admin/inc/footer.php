@@ -521,7 +521,7 @@
               <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Web Development For Kids</a></li>
 
             </ul>
-             <h4>Internships</h4>
+             <h4 style="margin-top:6px !important">Internships</h4>
              <ul>
              <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Software Testing Internsip</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/angular-fullstack">Web Development Internship</a></li>
@@ -538,9 +538,9 @@
               <li><i class="bi bi-chevron-right"></i> <a href="/software-testing">Automation Testing</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/web-development">MERN & MEAN</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/react-native">React Native</a></li>
-              <li></li><i class="bi bi-chevron-right"></i> <a href="/cloud-devops">AWS DevOps</a></li>
-              <li></li><i class="bi bi-chevron-right"></i> <a href="/power-bi">Power BI & SQL</a></li>
-              <li></li><i class="bi bi-chevron-right"></i> <a href="/python">Python</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/cloud-devops">AWS DevOps</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/power-bi">Power BI & SQL</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/python">Python</a></li>
             </ul>
           </div>
           
