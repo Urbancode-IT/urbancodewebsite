@@ -701,28 +701,123 @@
      color: hsl(170, 75%, 41%); 
   } 
   #footer .copyright { text-align: center; padding-top: 30px; } #footer .credits { padding-top: 10px; text-align: center; font-size: 13px; color: #fff; }
+.brochure_popup .brochure_popup__content {
+    width: 80%;
+    max-width: 550px;
+    overflow: auto;
+    padding: 20px;
+    background: white;
+    color: black;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-top: 4px solid #00b56f;
+}
+.brochure_popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none; /* 🔹 keep hidden initially */
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+.brochure_popup.active {
+  display: flex; /* 🔹 only show when "active" */
+}
+.brochure_popup__content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 700px; /* Desktop/laptop limit */
+  width: 100%;
+  max-height: 90vh; /* Prevents overflowing desktop screen */
+  overflow-y: auto; /* Scroll if content exceeds height */
+}
+
+/* ✅ Mobile friendly */
+@media (max-width: 767px) {
+  .brochure_popup__content {
+    width: 100%;              /* Almost full width */
+    height: 90vh;            /* Use most of screen height */
+    max-width: none;         /* Remove desktop width limit */
+    border-radius: 8px;
+    overflow-y: auto;        /* Scroll only in mobile */
+  }
+
+  .brochure_popup {
+    align-items: flex-start; /* Start from top instead of center */
+    padding: 15px 0;         /* Space at top/bottom */
+  }
+}
 </style>
 
 
 
 <div class="toast custom-toast h-0 border-0" id="customToast" role="alert" aria-live="assertive" aria-atomic="true"></div>
 <section class="brochure_popup">
-    <div class="brochure_popup__content">
-        <div class="brochure_close">
-            <h3>Download Brochure</h3>
-            <i class="fa-solid fa-xmark"></i>
-        </div>
-        <hr style="color: #c6c2c2;height: 2px;">
-        <form id="banner-form">
-            <div style="gap: 20px;display: grid;margin-top: 20px;">
-                <input class="form-control me-2 mb-2 mb-lg-0" type="email" placeholder="Email*" id="brochure-email">
-                <input class="form-control me-2 mb-2 mb-lg-0" type="phone" placeholder="Mobile Number*" id="brochure-phone">
-                <a href="javascript:;" class="custom-btn btn slide-btn" onclick="enroll('brochure', 'brochure-form')" style="padding: 8px 25px;text-transform: uppercase;font-weight: 600;letter-spacing: 2px;">Download Now</a>
-            </div>
-        </form>
+  <div class="brochure_popup__content" >
+    <div class="brochure_close d-flex justify-content-between align-items-center" >
+      <h3 class="m-0" >Download Brochure</h3>
+      <i class="fa-solid fa-xmark"></i>
     </div>
-</section>
+    <hr style="color: #c6c2c2;height: 2px;">
 
+    <form id="brochure-form">
+      <div class="row g-3 mt-2">
+        <div class="col-md-6">
+          <label for="brochure-name" class="form-label">Name</label>
+          <input class="form-control" type="text" placeholder="Enter your name" id="brochure-name" required>
+        </div>
+        <div class="col-md-6">
+          <label for="brochure-course" class="form-label">Course</label>
+          <select class="form-control" id="brochure-course" required>
+            <option value="" selected disabled>Select your course</option>
+            <option value="Full Stack Development">Full Stack Development</option>
+            <option value="Data Science">Data Science</option>
+            <option value="AI & ML">AI & ML</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="UI/UX Design">UI/UX Design</option>
+            <option value="Cyber Security">Cyber Security</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="brochure-email" class="form-label">Email Address</label>
+          <input class="form-control" type="email" placeholder="Enter your email" id="brochure-email" required>
+        </div>
+        <div class="col-md-6">
+          <label for="brochure-phone" class="form-label">Phone Number</label>
+          <input class="form-control" type="tel" placeholder="Enter your phone" id="brochure-phone" required>
+        </div>
+        <div class="col-md-6">
+          <label for="brochure-zipcode" class="form-label">Location Zip Code</label>
+          <input class="form-control" type="text" placeholder="Enter your zip code" id="brochure-zipcode" required>
+        </div>
+        <div class="col-md-6">
+          <label for="brochure-mode" class="form-label">Mode</label>
+          <select class="form-control" id="brochure-mode" required>
+            <option value="" selected disabled>Select mode</option>
+            <option value="Online">Online</option>
+            <option value="Offline">Offline</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end mt-3">
+        <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+        <a href="javascript:;" class="btn btn-success" onclick="enroll('brochure', 'brochure-form')">
+          Download Now
+        </a>
+      </div>
+    </form>
+  </div>
+</section>
 
  <!--<script>-->
  <!--       document.addEventListener('contextmenu', function(event) {-->
@@ -936,3 +1031,4 @@
   </script>  
 
 </html>
+
