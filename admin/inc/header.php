@@ -933,7 +933,7 @@ else if($endex[0]=='seo'){
 }
 
 .header .logo img {
-  max-height: 50px;
+  max-height: 56px;
   margin-right: 8px;
 }
 
@@ -1139,10 +1139,9 @@ else if($endex[0]=='seo'){
 
 /* Mobile Navigation */
 @media (max-width: 1199px) {
-
   .mobile-nav-toggle {
     color: #000; 
-    font-size: 30px;
+    font-size: 38px;
     font-weight: bolder;  
     line-height: 0;
     margin-right: 10px;
@@ -1479,10 +1478,6 @@ else if($endex[0]=='seo'){
 }
 
 @media (max-width: 992px) {
-  .header .logo img {
-    max-height: 34px;
-    margin-right: 8px;
-    }
     .breadcrumbs-header .page-header {
         margin-top: 40px;
     }
@@ -1839,8 +1834,200 @@ span.course__vote {
 </script>
 
 <!--Chatbot -->
+<!-- Enhanced Chatbot Trigger Button -->
+<div id="chatbot-trigger" class="chatbot-trigger">
+  <div class="chatbot-icon">
+    <img src="images/get.png" style="width: 100%; height: 100%; border-radius: 50%;" alt="Chat with us" />
+  </div>
+  <span class="chatbot-pulse"></span>
+</div>
 
-<script>(function(w, d) { w.CollectId = "665c64b71063215eaa122fd0"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+<!-- Enhanced Chatbot Container -->
+<div id="chatbot-container" class="chatbot-container">
+  <div class="chatbot-close">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 6L6 18M6 6L18 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  </div>
+  <iframe src="https://uc-chatbot.netlify.app" 
+          frameborder="0" 
+          class="chatbot-iframe"></iframe>
+</div>
+
+<style>
+  /* Chatbot Trigger Styles */
+  .chatbot-trigger {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9998;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .chatbot-trigger:hover {
+    transform: scale(1.1);
+  }
+  
+  .chatbot-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 12px rgba(26, 183, 157, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #1AB79D;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .chatbot-icon img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+  
+  .chatbot-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(26, 183, 157, 0.4);
+    z-index: 1;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.8;
+    }
+    70% {
+      transform: translate(-50%, -50%) scale(1.4);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  /* Chatbot Container Styles */
+  .chatbot-container {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    width: 380px;
+    height: 600px;
+    z-index: 9999;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: none;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s ease;
+  }
+  
+  .chatbot-container.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  .chatbot-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s;
+  }
+  
+  .chatbot-close:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+  }
+  
+  .chatbot-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 16px;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .chatbot-container {
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    
+    .chatbot-trigger {
+      bottom: 16px;
+      right: 16px;
+    }
+    
+    .chatbot-icon {
+      width: 56px;
+      height: 56px;
+    }
+    
+    .chatbot-pulse {
+      width: 66px;
+      height: 66px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatbotTrigger = document.getElementById('chatbot-trigger');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotClose = document.querySelector('.chatbot-close');
+    
+    // Toggle chatbot visibility
+    chatbotTrigger.addEventListener('click', function() {
+      chatbotContainer.classList.toggle('active');
+    });
+    
+    // Close chatbot
+    chatbotClose.addEventListener('click', function() {
+      chatbotContainer.classList.remove('active');
+    });
+    
+    // Close chatbot when clicking outside
+    document.addEventListener('click', function(event) {
+      if (chatbotContainer.classList.contains('active') && 
+          !chatbotContainer.contains(event.target) && 
+          !chatbotTrigger.contains(event.target)) {
+        chatbotContainer.classList.remove('active');
+      }
+    });
+    
+    // Prevent iframe from closing when clicking inside it
+    document.querySelector('.chatbot-iframe').addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+  });
+</script>
+
+<!--<script>(function(w, d) { w.CollectId = "665c64b71063215eaa122fd0"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>-->
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -2089,6 +2276,7 @@ span.course__vote {
                   
                   <!-- <li><a class="dropdown-item" href="/study-abroad">Study Abroad</a></li> -->
                   <li><a class="dropdown-item" href="/internship">Internship</a></li>
+                  <li><a class="dropdown-item" href="/uc-jobs">UC Jobs</a></li>
                   <li><a class="dropdown-item" href="/jobs">jobs</a></li>
                   <li><a class="dropdown-item" href="/be-our-mentor">Be our Mentor</a></li>
                   <li><a class="dropdown-item" href="/login">Referrals</a></li>
@@ -2137,7 +2325,8 @@ span.course__vote {
     });
 
    </script>
-</header> 
+</header>  
+
 
 <!-- Modal -->
 <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
