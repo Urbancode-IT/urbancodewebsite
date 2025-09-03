@@ -2891,79 +2891,80 @@ padding: 5px 15px;
 <section id="gallery" class="gallery">
 
 <style>
- /*--------------------------------------------------------------
-# Gallery Section
+/*--------------------------------------------------------------
+# Gallery Section (scoped under .gallery)
 --------------------------------------------------------------*/
 .gallery {
-    overflow: hidden;
-  }
+  overflow: hidden;
+}
 
-  .gallery .swiper-pagination {
-    margin-top: 20px;
-    position: relative;
-  }
+/* Pagination styling */
+.gallery .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
 
-  .gallery .swiper-pagination .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background-color: #d1d1d7;
-    opacity: 1;
-  }
+.gallery .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #d1d1d7;
+  opacity: 1;
+}
 
-  .gallery .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: #01af6a;
+.gallery .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #01af6a;
+}
+
+/* Active slide emphasis (desktop adjusted in media query) */
+.gallery .swiper-slide-active {
+  text-align: center;
+}
+
+/* Base image styling (all viewports) */
+.swiper-slide img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;          /* <-- fixed */
+  border-radius: 10px;
+}
+
+/* Desktop (≥992px) */
+@media (min-width: 992px) {
+  .gallery .swiper-wrapper {
+    padding: 40px 0;
   }
 
   .gallery .swiper-slide-active {
-    text-align: center;
+    border: 6px solid #01af6a;
+    padding: 4px;
+    background: #fff;
+    z-index: 1;
+    transform: scale(1.2);
   }
-  .swiper-slide img {
-  width: 250px;       /* Set your desired width */
-  height: 250px;      /* Set your desired height */
-  object-f.gallery-slider it: cover;  /* Ensures the image covers the box without distortion */
-  border-radius: 10px; /* Optional: adds rounded corners */
 }
 
-
-  @media (min-width: 992px) {
-    .gallery .swiper-wrapper {
-      padding: 40px 0;
-    }
-
-    .gallery .swiper-slide-active {
-      border: 6px solid #01af6a;
-      padding: 4px;
-      background: #fff;
-      z-index: 1;
-      transform: scale(1.2);
-    }
-  }
-  /* ---- Mobile-only fixes for the gallery slider ---- */
+/* Phones (≤576px) */
 @media (max-width: 576px) {
-  /* Center each slide's content */
   .gallery .swiper-slide {
     display: flex;
     justify-content: center;
   }
 
-  /* Make the anchor fill and center its child */
   .gallery .swiper-slide > a {
     display: flex;
     justify-content: center;
     width: 100%;
   }
 
-  /* Center the image and keep the same look */
   .gallery .swiper-slide img {
     display: block;
     margin: 0 auto;
     width: 250px;
     height: 250px;
-    object-fit: cover;           /* fixes mobile crop without changing desktop */
+    object-fit: cover;
     border-radius: 10px;
   }
 
-  /* Disable desktop “active” zoom/border on phones only */
   .gallery .swiper-slide-active {
     border: none;
     padding: 0;
@@ -2971,25 +2972,22 @@ padding: 5px 15px;
     transform: none;
   }
 
-  /* Remove extra vertical padding on phones */
   .gallery .swiper-wrapper { padding: 0; }
 }
-/* ---- Tablet (iPad) responsive tweaks: 577px–991px ---- */
+
+/* Tablets (577px–991px) */
 @media (min-width: 577px) and (max-width: 991px) {
-  /* Center each slide */
   .gallery .swiper-slide {
     display: flex;
     justify-content: center;
   }
 
-  /* Make anchor fill and center */
   .gallery .swiper-slide > a {
     display: flex;
     justify-content: center;
     width: 100%;
   }
 
-  /* Slightly larger image than phone */
   .gallery .swiper-slide img {
     display: block;
     margin: 0 auto;
@@ -2999,11 +2997,9 @@ padding: 5px 15px;
     border-radius: 12px;
   }
 
-  /* Gentle spacing on tablets */
   .gallery .swiper-wrapper { padding: 12px 0; }
   .gallery .swiper-pagination { margin-top: 16px; }
 
-  /* No desktop zoom/border at this size */
   .gallery .swiper-slide-active {
     border: none;
     padding: 0;
@@ -3011,16 +3007,16 @@ padding: 5px 15px;
     transform: none;
   }
 }
-/* phone + tablet */
+
+/* Phones + tablets (≤991px) pagination layout */
 @media (max-width: 991px) {
   .gallery .swiper-pagination {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;   /* keep one row */
+    flex-wrap: nowrap;
     gap: 8px;
-    overflow: hidden;    /* hide any accidental duplicates */
-
-    padding-top:25px;
+    overflow: hidden;
+    padding-top: 25px;
   }
 }
 
@@ -3033,96 +3029,90 @@ padding: 5px 15px;
         <p>New posts</p>
     </header>
 
-<div class="gallery-slider swiper">
-  <div class="swiper-wrapper align-items-center">
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-17.webp" aria-label="View image 1 in the gallery">
-              <img src="images/gallery/g-17.webp" class="img-fluid" alt="Image 1">
-          </a>
+    <div class="gallery-slider swiper">
+      <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-17.webp" aria-label="View image 1 in the gallery">
+                  <img src="images/gallery/g-17.webp" class="img-fluid" alt="Image 1">
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-18.webp" aria-label="View image 2 in the gallery">
+                  <img src="images/gallery/g-18.webp" class="img-fluid" alt="Image 2">
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-19.webp" aria-label="View image 3 in the gallery">
+                  <img src="images/gallery/g-19.webp" class="img-fluid" alt="Image 3">
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-20.webp" aria-label="View image 4 in the gallery">
+                  <img src="images/gallery/g-20.webp" class="img-fluid" alt="Image 4">
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-21.webp" aria-label="View image 5 in the gallery">
+                  <img src="images/gallery/g-21.webp" class="img-fluid" alt="Image 5">
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-22.webp" aria-label="View image 6 in the gallery">
+                  <img src="images/gallery/g-22.webp" class="img-fluid" alt="Image 7">
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-23.webp" aria-label="View image 7 in the gallery">
+                  <img src="images/gallery/g-23.webp" class="img-fluid" alt="Image 8">
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-11.webp" aria-label="View image 8 in the gallery">
+                  <img src="images/gallery/g-11.webp" class="img-fluid" alt="Image 11">
+              </a>
+          </div>
+          
+          <!--<div class="swiper-slide">-->
+          <!--    <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-8.jpg" aria-label="View image 8 in the gallery">-->
+          <!--        <img src="images/gallery/g-24.jpg" class="img-fluid" alt="Image 9">-->
+          <!--    </a>-->
+          <!--</div>-->
+          <!--<div class="swiper-slide">-->
+          <!--    <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-9.jpg" aria-label="View image 8 in the gallery">-->
+          <!--        <img src="images/gallery/g-25.jpg" class="img-fluid" alt="Image 9">-->
+          <!--    </a>-->
+          <!--</div>-->
+          <!--<div class="swiper-slide">-->
+          <!--    <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-10.jpg" aria-label="View image 8 in the gallery">-->
+          <!--        <img src="images/gallery/g-26.jpg" class="img-fluid" alt="Image 10">-->
+          <!--    </a>-->
+          <!--</div>-->
+          <!--<div class="swiper-slide">-->
+          <!--    <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-12.jpg" aria-label="View image 8 in the gallery">-->
+          <!--        <img src="images/gallery/g-27.jpg" class="img-fluid" alt="Image 12">-->
+          <!--    </a>-->
+          <!--</div>-->
+          <!--
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-15.jpg" aria-label="View image 8 in the gallery">
+                  <img src="images/gallery/g-15.jpg" class="img-fluid" alt="Image 15">
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-16.jpg" aria-label="View image 8 in the gallery">
+                  <img src="images/gallery/g-16.jpg" class="img-fluid" alt="Image 16">
+              </a>
+          </div>-->
       </div>
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-18.webp" aria-label="View image 2 in the gallery">
-              <img src="images/gallery/g-18.webp" class="img-fluid" alt="Image 2">
-          </a>
-      </div>
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-19.webp" aria-label="View image 3 in the gallery">
-              <img src="images/gallery/g-19.webp" class="img-fluid" alt="Image 3">
-          </a>
-      </div>
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-20.webp" aria-label="View image 4 in the gallery">
-              <img src="images/gallery/g-20.webp" class="img-fluid" alt="Image 4">
-          </a>
-      </div>
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-21.webp" aria-label="View image 5 in the gallery">
-              <img src="images/gallery/g-21.webp" class="img-fluid" alt="Image 5">
-          </a>
-      </div>
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-22.webp" aria-label="View image 6 in the gallery">
-              <img src="images/gallery/g-22.webp" class="img-fluid" alt="Image 7">
-          </a>
-      </div>
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-23.webp" aria-label="View image 7 in the gallery">
-              <img src="images/gallery/g-23.webp" class="img-fluid" alt="Image 8">
-          </a>
-      </div>
-      <!--<div class="swiper-slide">-->
-      <!--    <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-8.jpg" aria-label="View image 8 in the gallery">-->
-      <!--        <img src="images/gallery/g-24.jpg" class="img-fluid" alt="Image 9">-->
-      <!--    </a>-->
-      <!--</div>-->
-      <!--<div class="swiper-slide">-->
-      <!--    <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-9.jpg" aria-label="View image 8 in the gallery">-->
-      <!--        <img src="images/gallery/g-25.jpg" class="img-fluid" alt="Image 9">-->
-      <!--    </a>-->
-      <!--</div>-->
-      <!--<div class="swiper-slide">-->
-      <!--    <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-10.jpg" aria-label="View image 8 in the gallery">-->
-      <!--        <img src="images/gallery/g-26.jpg" class="img-fluid" alt="Image 10">-->
-      <!--    </a>-->
-      <!--</div>-->
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-11.webp" aria-label="View image 8 in the gallery">
-              <img src="images/gallery/g-11.webp" class="img-fluid" alt="Image 11">
-          </a>
-      </div>
-      <!--<div class="swiper-slide">-->
-      <!--    <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-12.jpg" aria-label="View image 8 in the gallery">-->
-      <!--        <img src="images/gallery/g-27.jpg" class="img-fluid" alt="Image 12">-->
-      <!--    </a>-->
-      <!--</div>-->
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-13.webp" aria-label="View image 8 in the gallery">
-              <img src="images/gallery/g-13.webp" class="img-fluid" alt="Image 13">
-          </a>
-      </div>
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-14.webp" aria-label="View image 8 in the gallery">
-              <img src="images/gallery/g-14.webp" class="img-fluid" alt="Image 14">
-          </a>
-      </div>
-      <!--
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-15.jpg" aria-label="View image 8 in the gallery">
-              <img src="images/gallery/g-15.jpg" class="img-fluid" alt="Image 15">
-          </a>
-      </div>
-      <div class="swiper-slide">
-          <a class="glightbox" data-gallery="images-gallery" href="images/gallery/g-16.jpg" aria-label="View image 8 in the gallery">
-              <img src="images/gallery/g-16.jpg" class="img-fluid" alt="Image 16">
-          </a>
-      </div>-->
-  </div>
-  <div class="swiper-pagination"></div>
-</div>
+      <div class="swiper-pagination"></div>
+    </div>
 
+    
 </section><!-- End Gallery Section -->
 </div>
 <!-- ======= Testimonials Section ======= -->
+
+
 
 <style>
     /*-------------------------------------------------------------- # Reviews --------------------------------------------------------------*/
