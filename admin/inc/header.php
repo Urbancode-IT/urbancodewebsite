@@ -933,7 +933,7 @@ else if($endex[0]=='seo'){
 }
 
 .header .logo img {
-  max-height: 56px;
+  max-height: 50px;
   margin-right: 8px;
 }
 
@@ -1478,6 +1478,11 @@ else if($endex[0]=='seo'){
 }
 
 @media (max-width: 992px) {
+.header .logo img {
+    max-height: 34px;
+    margin-right: 8px;
+    }
+
     .breadcrumbs-header .page-header {
         margin-top: 40px;
     }
@@ -2276,7 +2281,6 @@ span.course__vote {
                   
                   <!-- <li><a class="dropdown-item" href="/study-abroad">Study Abroad</a></li> -->
                   <li><a class="dropdown-item" href="/internship">Internship</a></li>
-                  <li><a class="dropdown-item" href="/uc-jobs">UC Jobs</a></li>
                   <li><a class="dropdown-item" href="/jobs">jobs</a></li>
                   <li><a class="dropdown-item" href="/be-our-mentor">Be our Mentor</a></li>
                   <li><a class="dropdown-item" href="/login">Referrals</a></li>
