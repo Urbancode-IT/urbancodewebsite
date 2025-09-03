@@ -933,7 +933,7 @@ else if($endex[0]=='seo'){
 }
 
 .header .logo img {
-  max-height: 56px;
+  max-height: 50px;
   margin-right: 8px;
 }
 
@@ -1139,9 +1139,10 @@ else if($endex[0]=='seo'){
 
 /* Mobile Navigation */
 @media (max-width: 1199px) {
+
   .mobile-nav-toggle {
     color: #000; 
-    font-size: 38px;
+    font-size: 30px;
     font-weight: bolder;  
     line-height: 0;
     margin-right: 10px;
@@ -1478,6 +1479,10 @@ else if($endex[0]=='seo'){
 }
 
 @media (max-width: 992px) {
+  .header .logo img {
+    max-height: 34px;
+    margin-right: 8px;
+    }
     .breadcrumbs-header .page-header {
         margin-top: 40px;
     }
@@ -2084,7 +2089,6 @@ span.course__vote {
                   
                   <!-- <li><a class="dropdown-item" href="/study-abroad">Study Abroad</a></li> -->
                   <li><a class="dropdown-item" href="/internship">Internship</a></li>
-                  <li><a class="dropdown-item" href="/uc-jobs">UC Jobs</a></li>
                   <li><a class="dropdown-item" href="/jobs">jobs</a></li>
                   <li><a class="dropdown-item" href="/be-our-mentor">Be our Mentor</a></li>
                   <li><a class="dropdown-item" href="/login">Referrals</a></li>
@@ -2133,8 +2137,7 @@ span.course__vote {
     });
 
    </script>
-</header>  
-
+</header> 
 
 <!-- Modal -->
 <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
