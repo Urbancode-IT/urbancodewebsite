@@ -296,7 +296,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
    Hero Section
 -------------------------------*/
 .hero {
-  margin-top :9% !important;
+  margin-top :5.8% !important;
   position: relative;
   background: var(--gradient-hero);
   overflow: hidden;
@@ -960,7 +960,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
                 <!-- C++ -->
                 <div class="course-card">
                     <div class="course-image">
-                    <img src="image/c++.webp" alt="C++ Course">
+                    <img src="image\C++.webp" alt="C++ Course">
                     <div class="course-badge">2 Months</div>
                     </div>
                     <div class="course-content">
@@ -1047,7 +1047,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
                 <!-- AI & ML -->
                 <div class="course-card">
                     <div class="course-image">
-                    <img src="image/aiml.webp" alt="AI & ML Course">
+                    <img src="image\AIML.webp" alt="AI & ML Course">
                     <div class="course-badge">3 Months</div>
                     </div>
                     <div class="course-content">
