@@ -503,36 +503,33 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Trending Software Courses</h4>
+            <h4>Demand Software Courses</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Full Stack Development</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">MERN Stack </a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">MEAN Stack </a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Python Stack </a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/angular-fullstack">.NET + Angular Full Stack</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Data Analytics</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/aws">AWS cloud computing course</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/digital-marketing">Digital Marketing course</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/ms-sql">MSSQL Server online course</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/digital-marketing">Software Testing</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Kids Courses</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Python Kids</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/angular-fullstack">AI for Kids</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Core Python </a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/angular-fullstack">AI & ML for Kids</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Web Development For Kids</a></li>
-
+              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Graphic Designing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">C Programming</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">SQL</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">C++</a></li>
             </ul>
-             <h4 style="margin-top:6px !important">Internships</h4>
-             <ul>
-             <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Software Testing Internsip</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/angular-fullstack">Web Development Internship</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Digital Marketing Internship</a></li>
-            </ul>
-
           </div>
 
 
 
-          <div class="col-lg-3 col-md-6 footer-links">
+        <!--  <div class="col-lg-3 col-md-6 footer-links">
             <h4>Demand Courses</h4>
             <ul>
               <li><i class="bi bi-chevron-right"></i> <a href="/software-testing">Automation Testing</a></li>
@@ -543,7 +540,15 @@
               <li><i class="bi bi-chevron-right"></i> <a href="/python">Python</a></li>
             </ul>
           </div>
-          
+          --->
+          <div class="col-lg-3 col-md-6 footer-links">
+             <h4>Internships</h4>
+             <ul>
+             <li><i class="bi bi-chevron-right"></i> <a href="/full-stack">Software Testing Internsip</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/angular-fullstack">Web Development Internship</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/data-science">Digital Marketing Internship</a></li>
+            </ul>
+  </div>
 
         </div>
       </div>
