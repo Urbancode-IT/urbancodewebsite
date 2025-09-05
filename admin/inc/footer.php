@@ -127,12 +127,96 @@
     50% { transform: translateY(-10px) rotate(10deg); }
     100% { transform: translateY(0) rotate(-10deg); }
   }
+
+  /* Gradient Shine Effect */
+.text-gradient {
+  background: linear-gradient(
+    90deg,
+    #01af6a,
+    hsl(168, 76%, 42%),
+    black
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* typing effect */
+.text-gradient {
+  background: linear-gradient(
+    90deg, 
+    #01af6a, 
+    hsl(168, 76%, 42%), 
+    #404040ff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+.btn-primary{
+  background : hsl(168, 76%, 42%) !important;
+  border-color : hsl(168, 76%, 42%) !important;
+}
+
+.btn-primary:focus{
+  background : hsl(168, 76%, 42%) !important;
+  border-color : hsl(168, 76%, 42%) !important;
+  box-shadow: 0 0 0 .25rem hsl(168, 76%, 42%) !important;
+}
+/* Unique Animated Heading */
+.animated-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff6b6b, #5f27cd, #1dd1a1, #feca57);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease-in-out infinite, slideFadeIn 1.5s ease-out;
+  display: inline-block;
+  position: relative;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Slide + Fade-in effect */
+@keyframes slideFadeIn {
+  0% { opacity: 0; transform: translateY(-40px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Subheading styling */
+.sub-heading {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 8px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 </style>
-
-
-
-
-
 
 
 <section id="feedback" class="feedback-section">
@@ -143,15 +227,13 @@
       <span>✨</span><span>💬</span><span>❤️</span><span>🎉</span><span>🧡</span>
     </div>
 
-    <!-- Heading -->
-    <!-- <div class="feedback-header">
-      <div class="rating">
-        <span class="stars">★★★★★</span>
-        <span class="score">4.9</span>
-      </div>
-      <h2 class="main-heading">They love <span class="highlight">us</span>! <span class="emoji">🥰</span></h2>
-      <div class="likes">❤️ 12k</div>
-    </div> -->
+    <!-- Heading and Subheading -->
+    <div class="feedback-header mb-4">
+      <h2 class="main-heading wave-heading text-gradient">The Voice That Matters</h2>
+      <p class="sub-heading">Where trust finds a voice in every story</p>
+    </div>
+
+
 
     <!-- Swiper -->
     <!-- <div class="swiper mySwiper">
