@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
 /* ------------------------------
    Courses Section
 -------------------------------*/
-.courses { padding: 5rem 0; background: hsla(210, 40%, 96.1%, 0.2); }
+.courses { padding: 3rem 0; background: hsla(210, 40%, 96.1%, 0.2); }
 
 .section-header { text-align: center; margin-bottom: 4rem; }
 .section-title { margin-bottom: 1rem; }
@@ -715,6 +715,25 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
   border-color : hsl(168, 76%, 42%) !important;
   box-shadow: 0 0 0 .25rem hsl(168, 76%, 42%) !important;
 }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
 </style>
     <!-- Hero Section -->
     <section class="hero">
@@ -737,13 +756,15 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
                     </p>
 
                     <div class="hero-buttons">
-                        <button class="btn btn-primary btn-lg">
+                        <a href="courses.php">
+                          <button class="btn btn-primary btn-lg">
                             Explore Courses
                             <svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18 6-6-6-6"/>
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18 6-6-6-6"/>
                             </svg>
-                        </button>
-                        
+                          </button>
+                        </a>
+
                         <button class="btn btn-outline btn-lg">
                             <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -755,7 +776,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
                     <!-- Stats -->
                 <div class="hero-stats">
                 <div class="stat">
-                    <div class="stat-number">500+</div>
+                    <div class="stat-number">100+</div>
                     <div class="stat-label">Happy Kids</div>
                 </div>
                 <div class="stat">
@@ -764,7 +785,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
                 </div>
                 <div class="stat">
                     <div class="stat">
-                    <div class="stat-number">6+</div>
+                    <div class="stat-number">8+</div>
                     <div class="stat-label">Courses</div>
                     </div>
                 </div>
@@ -783,11 +804,11 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
                         <div class="floating-element floating-element-3">⭐</div>
                     </div>
 
-                    <!-- Online Support Badge -->
+                    <!-- Online Support Badge 
                     <div class="online-badge">
                         <div class="online-indicator"></div>
                         <span>Online Support</span>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -1073,12 +1094,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
                     <div class="course-cta"><button class="btn btn-primary btn-full">Enroll Now</button></div>
                 </div>
                 </div>
-
-
-            <div class="courses-more">
-                <p>Can't find the right course? We have more options!</p>
-                <button class="link-button">View All Courses →</button>
-            </div>
         </div>
     </section>
 
@@ -1097,14 +1112,14 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
 
             <div class="features-grid">
                 <div class="feature-card">
-<div class="feature-icon feature-icon-orange">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/>
-    <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/>
-    <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/>
-    <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/>
-  </svg>
-</div>
+                <div class="feature-icon feature-icon-orange">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/>
+                  </svg>
+                </div>
 
 
 
@@ -1171,11 +1186,11 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
                     
                     <div class="cta-stats">
                         <div class="cta-stat">
-                            <div class="cta-stat-number">2-12</div>
+                            <div class="cta-stat-number">8-15</div>
                             <div class="cta-stat-label">Age Range</div>
                         </div>
                         <div class="cta-stat">
-                            <div class="cta-stat-number">6+</div>
+                            <div class="cta-stat-number">8+</div>
                             <div class="cta-stat-label">Course Options</div>
                         </div>
                         <div class="cta-stat">
